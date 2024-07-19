@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="ad196c1e-ed33-4cec-ae86-a6e90502a2f9" name="Rennkalender">
+        <fileTransfer rootFolder="/var/www/html/public" accessType="SFTP" host="localhost" port="22" sshConfigId="4899090d-2f32-4156-80e2-00108dbc5fd0" sshConfig="dockware@localhost:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
