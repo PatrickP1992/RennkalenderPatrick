@@ -59,6 +59,38 @@ class RennveranstaltungsController extends AbstractController
         ]);
     }
 
+    #[Route('/edit{id}', name: 'edit')]
+    public function edit($id, RennveranstaltungRepository $rennveranstaltungRepository, Request $request)
+    {
+        $em = $this->doctrine->getManager();
+        $rennveranstaltung = $rennveranstaltungRepository->find($id);
+
+
+        // Formular
+        $form = $this->createForm(RennveranstaltungType::class, $rennveranstaltung);
+        $form->handleRequest($request);
+        //$form->setData($rennveranstaltung);
+
+        // Wenn das Formular abgeschickt wurde
+        if ($form->isSubmitted() && $form->isValid()) {
+             print_r('Formular abschicken');
+            // Entity Manager
+            $em = $this->doctrine->getManager();
+
+            // Daten speichern
+            $em->flush();
+
+            return $this->redirectToRoute('rennveranstaltungen.bearbeiten');
+        }
+
+
+        // Response
+        return $this->render('rennveranstaltungs/edit.html.twig', [
+            'editForm' => $form->createView(),
+        ]);
+
+    }
+
     #[Route('/entfernen{id}', name: 'entfernen')]
     public function entfernen($id, RennveranstaltungRepository $rennveranstaltungRepository)
     {

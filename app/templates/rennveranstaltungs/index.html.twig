@@ -19,6 +19,7 @@
                 <td>Name</td>
                 <td>Veranstaltungsort</td>
                 <td>Datum</td>
+                <td>Bearbeiten</td>
                 <td>Löschen</td>
                 <td><a href="{{ path('rennveranstaltungen.anlegen') }}">Anlegen</a></td>
             </tr>
@@ -30,8 +31,9 @@
                     <td>{{ rennveranstaltung.name }}</td>
                     <td>{{ rennveranstaltung.location }}</td>
                     <td>{{ rennveranstaltung.date  | date('d-m-Y') }}</td>
+                    <td><a href="{{ path('rennveranstaltungen.edit',{id: rennveranstaltung.id}) }}">bearbeiten</a></td>
                     <td><a href="{{ path('rennveranstaltungen.entfernen',{id: rennveranstaltung.id}) }}">entfernen</a></td>
-                    <td><a href="{{ path('rennveranstaltungen.anlegen') }}">Anlegen</a></td>
+                    <td></td>
                 </tr>
             {% endfor %}
             </tbody>
