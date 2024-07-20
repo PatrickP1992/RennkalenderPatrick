@@ -73,7 +73,7 @@ class RennveranstaltungsController extends AbstractController
 
         // Wenn das Formular abgeschickt wurde
         if ($form->isSubmitted() && $form->isValid()) {
-             print_r('Formular abschicken');
+            
             // Entity Manager
             $em = $this->doctrine->getManager();
 
