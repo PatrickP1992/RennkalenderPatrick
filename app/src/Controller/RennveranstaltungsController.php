@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Rennveranstaltung;
+use App\Form\RennveranstaltungType;
 use App\Repository\RennveranstaltungRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -34,14 +35,44 @@ class RennveranstaltungsController extends AbstractController
     public function anlegen(Request $request)
     {
         $rennveranstaltung = new Rennveranstaltung();
-        $rennveranstaltung->setName('Fomel 1');
 
-        // Entity Manager
-        $em = $this->doctrine->getManager();
-        $em->persist($rennveranstaltung);
-        $em->flush();
+        // Formular
+        $form = $this->createForm(RennveranstaltungType::class, $rennveranstaltung);
+        $form->handleRequest($request);
+
+        // Wenn das Formular abgeschickt wurde
+        if ($form->isSubmitted() && $form->isValid()) {
+            // Entity Manager
+            $em = $this->doctrine->getManager();
+
+            // Daten speichern
+            $em->persist($rennveranstaltung);
+            $em->flush();
+
+            return $this->redirectToRoute('rennveranstaltungen.bearbeiten');
+        }
+
 
         // Response
-        return new Response('Rennveranstaltung wurde angelegt');
+        return $this->render('rennveranstaltungs/anlegen.html.twig', [
+            'anlegenForm' => $form->createView(),
+        ]);
+    }
+
+    #[Route('/entfernen{id}', name: 'entfernen')]
+    public function entfernen($id, RennveranstaltungRepository $rennveranstaltungRepository)
+    {
+        // Entity Manager
+        $em = $this->doctrine->getManager();
+        $rennveranstaltung = $rennveranstaltungRepository->find($id);
+        // loschen
+        $em->remove($rennveranstaltung);
+        // Datenbank aktualisieren
+        $em->flush();
+
+        // Nachricht
+        $this->addFlash('erfolg', 'Rennveranstaltung erfolgreich entfernt');
+
+        return $this->redirectToRoute('rennveranstaltungen.bearbeiten');
     }
 }
