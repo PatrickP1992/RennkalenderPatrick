@@ -82,6 +82,7 @@
       <path value="$PROJECT_DIR$/app/vendor/symfony/clock" />
       <path value="$PROJECT_DIR$/app/vendor/symfony/security-http" />
       <path value="$PROJECT_DIR$/app/vendor/psr/clock" />
+      <path value="$PROJECT_DIR$/app/vendor/symfony/serializer" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.1" />
