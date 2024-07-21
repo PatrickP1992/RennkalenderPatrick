@@ -5,6 +5,7 @@ namespace App\Controller;
 
 use App\Entity\Rennveranstaltung;
 use App\Form\RennveranstaltungType;
+use DateTime;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Encoder\XmlEncoder;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
@@ -52,6 +53,15 @@ class ApiController extends AbstractController
         $rennveranstaltung = $rennveranstaltungRepository->find($id);
 
 
+        // Wen unter der id nichts gefunden wurde
+        if ($rennveranstaltung == ''){
+            $response = new Response();
+            $response->setStatusCode(Response::HTTP_NOT_FOUND);
+            $response->setContent('Die Angegebene ID ist ungültig oder exisiert nicht.');
+
+            return $response;
+        }
+
         $object = new \stdClass();
         $object->id = $rennveranstaltung->getId();
         $object->name = $rennveranstaltung->getName();
@@ -73,6 +83,15 @@ class ApiController extends AbstractController
         $em = $this->doctrine->getManager();
         $rennveranstaltung = $rennveranstaltungRepository->find($id);
 
+        // Wen unter der id nichts gefunden wurde
+        if ($rennveranstaltung == ''){
+            $response = new Response();
+            $response->setStatusCode(Response::HTTP_NOT_FOUND);
+            $response->setContent('Die Angegebene ID ist ungültig oder exisiert nicht.');
+
+            return $response;
+        }
+
         // loschen
         $em->remove($rennveranstaltung);
         // Datenbank aktualisieren
@@ -92,7 +111,18 @@ class ApiController extends AbstractController
        $location = $requestData->get('location');
        $date = $requestData->get('date');
 
-        $date = \DateTime::createFromFormat('Y-m-d h:m:s', $date);
+        // Überprüfe ob Date das richtige Format hat
+        if (DateTime::createFromFormat('Y-m-d H:i:s', $date) !== false) {
+            // it's a date
+        }else{
+            $response = new Response();
+            $response->setStatusCode(Response::HTTP_NOT_FOUND);
+            $response->setContent('Die Angegebene Datum ist nicht im richtigen Format.');
+
+            return $response;
+        }
+
+       $date = \DateTime::createFromFormat('Y-m-d h:m:s', $date);
 
        $rennveranstaltung = new Rennveranstaltung();
        $rennveranstaltung->setName($name);
@@ -123,6 +153,8 @@ class ApiController extends AbstractController
         // Formular
         $form = $this->createForm(RennveranstaltungType::class, $rennveranstaltung);
         $form->submit($data);
+
+
         // Daten speichern
         $em->persist($rennveranstaltung);
         $em->flush();
