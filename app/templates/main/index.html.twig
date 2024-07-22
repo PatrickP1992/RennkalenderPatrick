@@ -3,5 +3,33 @@
 {% block title %}Rennkalender{% endblock %}
 
 {% block body %}
-<h1>Willkommen zum Rennkalender</h1>
+    <br>
+    <div class="container">
+        <h2>Alle Rennen Auf einem Blick</h2>
+        <br>
+
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <td>Id</td>
+                <td>Name</td>
+                <td>Veranstaltungsort</td>
+                <td>Datum</td>
+                <td>Uhrzeit</td>
+            </tr>
+            </thead>
+            <tbody>
+            {% for rennveranstaltung in rennveranstaltungen %}
+                <tr>
+                    <td>{{ rennveranstaltung.id }}</td>
+                    <td>{{ rennveranstaltung.name }}</td>
+                    <td>{{ rennveranstaltung.location }}</td>
+                    <td>{{ rennveranstaltung.date  | date('d-m-Y') }}</td>
+                    <td>{{ rennveranstaltung.date  | date('h:m') }}</td>
+                    <td></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
 {% endblock %}

@@ -75,6 +75,10 @@
       <excludeFolder url="file://$MODULE_DIR$/app/vendor/symfony/security-csrf" />
       <excludeFolder url="file://$MODULE_DIR$/app/vendor/symfony/security-http" />
       <excludeFolder url="file://$MODULE_DIR$/app/vendor/symfony/serializer" />
+      <excludeFolder url="file://$MODULE_DIR$/app/vendor/symfony/asset" />
+      <excludeFolder url="file://$MODULE_DIR$/app/vendor/symfony/asset-mapper" />
+      <excludeFolder url="file://$MODULE_DIR$/app/vendor/symfony/http-client" />
+      <excludeFolder url="file://$MODULE_DIR$/app/vendor/symfony/http-client-contracts" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
