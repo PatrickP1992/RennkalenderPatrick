@@ -1,3 +1,65 @@
-.container{
-  background-color: blue;
+body{
+  background-color: $color-gray-light;
+  overflow: hidden;
+}
+
+.content-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .logo-container{
+    display: flex;
+    justify-content: center;
+  }
+
+  .table-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1000px;
+    width: 100%;
+    table{
+
+    }
+    .table-botttom-corners{
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      position: relative;
+
+      .left-corner{
+        position: absolute;
+        left: -130px;
+        bottom: -100px;
+        z-index: -1;
+      }
+      .right-corner{
+        position: absolute;
+        right: -130px;
+        bottom: -100px;
+        z-index: -1;
+      }
+    }
+  }
+
+
+
+  .bottom-image{
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.table{
+  color: $color-01;
+
+  tr{
+    background-color: $color-gray-dark;
+  }
+
+  td{
+    color: $color-02;
+
+  }
 }

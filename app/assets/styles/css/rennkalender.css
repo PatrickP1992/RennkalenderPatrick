@@ -1,5 +1,70 @@
-.container {
-  background-color: blue;
+header {
+  background-color: #1F2126;
+  border-bottom: 2px solid #8C8B8D;
+  color: #FDF008;
+  padding: 1rem;
+}
+header .header-nav {
+  display: flex;
+  justify-content: space-between;
+}
+header .header-nav .menu-navigation {
+  display: flex;
+  gap: 2rem;
+}
+
+body {
+  background-color: #8C8B8D;
+  overflow: hidden;
+}
+
+.content-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.content-container .logo-container {
+  display: flex;
+  justify-content: center;
+}
+.content-container .table-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1000px;
+  width: 100%;
+}
+.content-container .table-container .table-botttom-corners {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  position: relative;
+}
+.content-container .table-container .table-botttom-corners .left-corner {
+  position: absolute;
+  left: -130px;
+  bottom: -100px;
+  z-index: -1;
+}
+.content-container .table-container .table-botttom-corners .right-corner {
+  position: absolute;
+  right: -130px;
+  bottom: -100px;
+  z-index: -1;
+}
+.content-container .bottom-image {
+  display: flex;
+  justify-content: center;
+}
+
+.table {
+  color: #FDF008;
+}
+.table tr {
+  background-color: #1F2126;
+}
+.table td {
+  color: #F64548;
 }
 
 /*# sourceMappingURL=rennkalender.css.map */

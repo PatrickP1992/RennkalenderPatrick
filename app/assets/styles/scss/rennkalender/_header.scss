@@ -1,0 +1,15 @@
+header{
+  background-color: $color-gray-dark;
+  border-bottom: 2px solid $color-gray-light;
+  color: $color-01;
+  padding: 1rem;
+
+  .header-nav{
+    display: flex;
+    justify-content: space-between;
+    .menu-navigation{
+      display: flex;
+      gap: 2rem;
+    }
+  }
+}

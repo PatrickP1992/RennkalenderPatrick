@@ -3,34 +3,46 @@
 {% block title %}Rennkalender{% endblock %}
 
 {% block body %}
-    <br>
-    <div class="container">
-        <h2>Alle Rennen Auf einem Blick</h2>
-        <br>
+    <div class="content-container">
+        <div class="logo-container">
+            <img src="{{ asset('images/logo.png') }}" alt="Logo" width="400">
+        </div>
 
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <td>Id</td>
-                <td>Name</td>
-                <td>Veranstaltungsort</td>
-                <td>Datum</td>
-                <td>Uhrzeit</td>
-            </tr>
-            </thead>
-            <tbody>
-            {% for rennveranstaltung in rennveranstaltungen %}
+        <div class="table-container">
+            <h2>Alle Rennen Auf einem Blick</h2>
+            <br>
+
+            <table class="table table-striped">
+                <thead>
                 <tr>
-                    <td>{{ rennveranstaltung.id }}</td>
-                    <td>{{ rennveranstaltung.name }}</td>
-                    <td>{{ rennveranstaltung.location }}</td>
-                    <td>{{ rennveranstaltung.date  | date('d-m-Y') }}</td>
-                    <td>{{ rennveranstaltung.date  | date('h:m') }}</td>
-                    <td></td>
+                    <td>Id</td>
+                    <td>Name</td>
+                    <td>Veranstaltungsort</td>
+                    <td>Datum</td>
+                    <td>Uhrzeit</td>
                 </tr>
-            {% endfor %}
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                {% for rennveranstaltung in rennveranstaltungen %}
+                    <tr>
+                        <td>{{ rennveranstaltung.id }}</td>
+                        <td>{{ rennveranstaltung.name }}</td>
+                        <td>{{ rennveranstaltung.location }}</td>
+                        <td>{{ rennveranstaltung.date  | date('d-m-Y') }}</td>
+                        <td>{{ rennveranstaltung.date  | date('h:m') }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            <div class="table-botttom-corners">
+                <img class="left-corner" src="{{ asset('images/flagge_links.png') }}" alt="Zielflage" width="400">
+                <img class="right-corner" src="{{ asset('images/flagge_rechts.png') }}" alt="Zielflage" width="400">
+            </div>
+        </div>
+
+        <div class="bottom-image">
+            <img src="{{ asset('images/formelwagen.png') }}" alt="Formelwagen" width="400">
+        </div>
     </div>
-    <img src="{{ asset('images/zielflagge.png') }}" alt="Zielflage" width="400">
+
 {% endblock %}
