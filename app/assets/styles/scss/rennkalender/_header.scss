@@ -4,6 +4,10 @@ header{
   color: $color-01;
   padding: 1rem;
 
+  a{
+    color: $color-01;
+  }
+
   .header-nav{
     display: flex;
     justify-content: space-between;
