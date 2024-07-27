@@ -67,6 +67,19 @@ table.my-table{
   }
 }
 
+/*
+Algemeine Table Anpassungen
+ */
+.table-div{
+  width: 100% !important;
+  //overflow-x: scroll;
+  //padding: 1rem;
+}
+
+
+/*
+Anpassungen für den Frontend Container
+ */
 .content-container{
   display: flex;
   flex-direction: column;
@@ -86,8 +99,11 @@ table.my-table{
     align-items: center;
     max-width: 1000px;
     width: 100%;
+    overflow: scroll;
+    padding: 2rem;
+
     @media only screen and (max-width: 1056px){
-      width: revert;
+      padding: 0;
     }
 
     .table-botttom-corners{

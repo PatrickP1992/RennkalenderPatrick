@@ -76,6 +76,16 @@ table.my-table tbody tr td {
   color: white;
 }
 
+/*
+Algemeine Table Anpassungen
+ */
+.table-div {
+  width: 100% !important;
+}
+
+/*
+Anpassungen für den Frontend Container
+ */
 .content-container {
   display: flex;
   flex-direction: column;
@@ -94,10 +104,12 @@ table.my-table tbody tr td {
   align-items: center;
   max-width: 1000px;
   width: 100%;
+  overflow: scroll;
+  padding: 2rem;
 }
 @media only screen and (max-width: 1056px) {
   .content-container .table-container {
-    width: revert;
+    padding: 0;
   }
 }
 .content-container .table-container .table-botttom-corners {
