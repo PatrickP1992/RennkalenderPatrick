@@ -68,12 +68,13 @@ table.my-table{
 }
 
 /*
-Allgemeine Table Anpassungen
+Algemeine Table Anpassungen
  */
 .table-div{
   width: 100% !important;
+  //overflow-x: scroll;
+  //padding: 1rem;
 }
-
 
 
 /*
@@ -98,11 +99,11 @@ Anpassungen für den Frontend Container
     align-items: center;
     max-width: 1000px;
     width: 100%;
-
+    overflow: scroll;
+    padding: 2rem;
 
     @media only screen and (max-width: 1056px){
       padding: 0;
-      overflow: scroll;
     }
 
     .table-botttom-corners{
